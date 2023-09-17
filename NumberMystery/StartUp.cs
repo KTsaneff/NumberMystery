@@ -4,8 +4,10 @@
     {
         public static void Main(string[] args)
         {
-            Random randomNumber = new();
-            int computerNumber = randomNumber.Next(1, 101);
+            GameProcessor game = new();
+            game.WelcomeGreeting();
+
+            int computerNumber = game.SetLevel();
 
             int allowedTries = 8;
 
@@ -16,8 +18,8 @@
                     Console.Write("Last chance! ");
                 }
                 allowedTries--;
-                
-                Console.Write($"Guess a number (1-100): ");
+
+                game.RangeInstruction();
                 string playerInput = Console.ReadLine();
 
                 bool isValid = int.TryParse(playerInput, out int playersGuess);
@@ -28,20 +30,19 @@
                     {
                         Console.WriteLine("You guessed it!");
 
-                        Thread.Sleep(1500);                        
+                        Thread.Sleep(1500);              
 
-                        bool continueGame = GameProcessor
-                            .ContinueGame();                        
+                        bool continueGame = game.ContinueGame();                        
 
                         if(continueGame)
                         {
                             allowedTries = 8;
-                            computerNumber = randomNumber.Next(1, 101);
+                            computerNumber = game.SetLevel();
                             continue;
                         }
                         else
                         {
-                            GameProcessor.GameOver();
+                            game.GameOver();
                         }
                     }
                     else if (playersGuess > computerNumber)
@@ -61,10 +62,14 @@
 
                 if(allowedTries == 0)
                 {
-                    if (!GameProcessor.ContinueGame())
+                    Console.WriteLine("You failed!");
+                    game.ResetLevel();
+
+                    if (!game.ContinueGame())
                     {
-                        GameProcessor.GameOver();
+                        game.GameOver();
                     }
+                    Console.WriteLine("Level 1");
                     allowedTries = 8;
                     continue;
                 }
