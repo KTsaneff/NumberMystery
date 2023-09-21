@@ -7,9 +7,9 @@
             GameProcessor game = new();
             game.WelcomeGreeting();
 
+            int allowedTries = game.DufficultySelector();
             int computerNumber = game.SetLevel();
 
-            int allowedTries = 8;
 
             while (true)
             {
@@ -28,7 +28,7 @@
                 {
                     if (playersGuess == computerNumber)
                     {
-                        Console.WriteLine("You guessed it!");
+                        Console.WriteLine($"Bravo, {game.PlayerName}! You guessed it!");
 
                         Thread.Sleep(1500);              
 
@@ -62,7 +62,7 @@
 
                 if(allowedTries == 0)
                 {
-                    Console.WriteLine("You failed!");
+                    Console.WriteLine($"Sorry {game.PlayerName}... You failed!");
                     game.ResetLevel();
 
                     if (!game.ContinueGame())
