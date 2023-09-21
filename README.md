@@ -15,15 +15,11 @@ The project is originally created by SoftUni.
 
 To get started with the **"Number Mystery"** game, follow these steps:
 
-1.Clone this repository to your local machine:
-  https://github.com/KTsaneff/NumberMystery.git
+1.Clone this repository to your local machine: https://github.com/KTsaneff/NumberMystery.git
 
-2. Navigate to the project directory:
-  cd _NumberMystery_
+2. Navigate to the project directory: cd _NumberMystery_
 
-3. Build and Run the game using C#:
-  dotnet build
-  dotnet run
+3. Build and Run the game using C#: dotnet build dotnet run
 
 ## Game Rules
 
