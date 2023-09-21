@@ -11,7 +11,7 @@ The project is originally created by SoftUni.
 - [Contributing](#contributing)
 - [License](#license)
 
-##Getting Started
+## Getting Started
 
 To get started with the **"Number Mystery"** game, follow these steps:
 
